@@ -3,16 +3,24 @@ const day = document.querySelector('.day');
 const hour = document.querySelector('.hour');
 const city = document.querySelector('.city');
 
+
+// Wybór dnia przez użytkownika
+const chooseDay = 2;
+
+const chooseTemperature = 24;
+
+const converter = 24;
+
 function setTimeAndTemprature(data) {
   
-  // const date = new Date();
-  // const currentDate = {
-  //   month: date.getMonth(),
-  //   day: date.getDay(),
-  //   year: date.getFullYear(),
-  //   hour: date.getHours(),
-  // }
-  // console.log(currentDate.hour);
+  console.log(data);
+  
+  
+  const futureTemperature = data.hourly.temperature_2m[(chooseTemperature * (chooseDay - 1))];
+
+  const futureTime = data.hourly.time[chooseDay  * converter];
+
+  console.log(`Temperatura ${futureTemperature} w dniu ${futureTime}`);
   
   
   
