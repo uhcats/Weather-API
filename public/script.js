@@ -38,6 +38,7 @@ function findTheFullDateClient(data) {
       return element === lastDate
     });
 
+    console.log(findIndexInTime);
     
     if(findIndexInTime === -1){
       return resultDiv.textContent = "Za dużo"
@@ -58,13 +59,8 @@ function findTheFullDateClient(data) {
       
   
   
-      resultDiv.innerText = `W dniu ${findTheFullDate} temperatura wyniesie: ${weather} stopni Celcjusza`;
-  
-      console.log(data);
+      resultDiv.innerHTML = `The temperature: ${weather}` + "<span>&#176;</span>";
     }
-
-
-    
   }
 
   
@@ -85,7 +81,7 @@ function findInArrayHour(data) {
 
 function setTimeAndTemprature(data) {
 
-
+  // <span>&#176;</span> 
 
   findInArrayHour(data);
   
@@ -95,7 +91,7 @@ function setTimeAndTemprature(data) {
   const getDay = time.slice(0,10);
   const getHour = time.slice(-5);
 
-  temp.textContent = temperature;
+  temp.innerHTML = temperature + "<span>&#176;</span>";
   day.textContent = getDay;
   hour.textContent = getHour;
   city.textContent = 'Koszalin';

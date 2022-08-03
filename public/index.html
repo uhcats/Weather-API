@@ -4,35 +4,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Weather</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Weather app API</h1>
 
   <div class="container">
 
-      <h2>City <span class = 'city'></span></h2>
+      
+  <div class = 'celcjusz'>
 
-      <h2>Temperatura
+ 
+    <h2>
         <span class = 'temperature'></span>
-      </h2>
+        
+    </h2>
+  </div>
 
-      <h2>Dzień
+  <div class = 'downSite'>
+
+    <div class = 'showInformation'>
+      <h4>Day: 
         <span class = 'day'></span>
-      </h2>
+      </h4>
 
-      <h2>Godzina
+      <h4>Hour: 
         <span class = 'hour'></span>
-      </h2>
+      </h4>
+      <h4>City:  <span class = 'city'></span></h4>
+    </div>
 
+
+  <div class = 'weatherInformation'>
+
+    <div class = 'date'>
+      <h5>Select a date</h5>
       <input type="date" class = 'inputDate' required>
-      Podaj godzinę
+    </div>
+
+    <div class="time">
+      <h5>Select a hour</h5>
       <input type="time" class = "inputTime" required>
-      <button class  = 'showResult' type = 'submit'>Pokaż pogodę</button>
+    </div>
+
+     
+      <button class  = 'showResult' type = 'submit'>Show Weather</button>
       <div class = 'result'></div>
 
-
-
+  </div>
+    </div>
   </div>
   
   <script src= 'script.js'></script>
