@@ -10,6 +10,8 @@ const inputDate = document.querySelector('.inputDate');
 const btn = document.querySelector('.showResult');
 const resultDiv = document.querySelector('.result');
 
+const weatherStatus = document.querySelector('.statusWeather');
+
 // Wybór dnia przez użytkownika
 const chooseDay = 2;
 
@@ -41,13 +43,10 @@ function findTheFullDateClient(data) {
     console.log(findIndexInTime);
     
     if(findIndexInTime === -1){
-      return resultDiv.textContent = "Za dużo"
+      return resultDiv.textContent = "Select a date for this week";
     }
     
     else {
-     console.log(findIndexInTime);
-    
-
       const findTheFullDate = newtime.splice(findIndexInTime,1);
   
      
@@ -87,6 +86,17 @@ function setTimeAndTemprature(data) {
   
 
   const {temperature,time} = data.current_weather;
+
+  if(temperature > 30){
+    weatherStatus.textContent = "Hot";
+  }
+  if(temperature > 20 && temperature < 30){
+    weatherStatus.textContent = "Chilly";
+  }
+  if(temperature < 0){
+    weatherStatus.textContent = "Cold";
+  }
+  
 
   const getDay = time.slice(0,10);
   const getHour = time.slice(-5);
