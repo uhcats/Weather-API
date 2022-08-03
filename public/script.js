@@ -23,6 +23,10 @@ let newtime;
 
 
 
+
+
+
+
 function findTheFullDateClient(data) {
 
   const validity1 = inputTime.checkValidity();
@@ -70,6 +74,16 @@ function findTheFullDateClient(data) {
 
 
 function findInArrayHour(data) {
+
+  // set Min and Max input date
+
+  const lastTime = data.hourly.time.slice(-1).toString();
+  
+  inputDate.min = data.current_weather.time.slice(0,10);
+  inputDate.max = lastTime.slice(0,10);
+
+
+
   const startIndexSlice = data.hourly.time.findIndex(element => element === data.current_weather.time);
  newtime =  data.hourly.time.slice(startIndexSlice);
  const newTemperature = data.hourly.temperature_2m.slice(startIndexSlice)
