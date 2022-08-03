@@ -22,26 +22,53 @@ let newtime;
 
 
 function findTheFullDateClient(data) {
-  const HourSelectFromClient = `${inputTime.value.slice(0,2)}:00`;
+
+  const validity1 = inputTime.checkValidity();
+  const validity2 = inputDate.checkValidity();
+ 
+  if(validity1 && validity2){
+
+    const HourSelectFromClient = `${inputTime.value.slice(0,2)}:00`;
+
+
+    
     const lastDate = `${inputDate.value}T${HourSelectFromClient}`;
-    const findIndexInTime =  newtime.findIndex(element => element === lastDate);
+   
+    const findIndexInTime =  newtime.findIndex(element => {
+      return element === lastDate
+    });
 
-    const findTheFullDate = newtime.splice(findIndexInTime,1);
-
-    console.log(data);
-
-    console.log(findIndexInTime);
-
-    const weather = data.hourly.temperature_2m.slice(findIndexInTime,1);
     
+    if(findIndexInTime === -1){
+      return resultDiv.textContent = "Za dużo"
+    }
     
-    console.log(weather);
-    
+    else {
+     console.log(findIndexInTime);
     
 
-    resultDiv.innerText = `W dniu ${findTheFullDate} temperatura wyniesie: `;
+      const findTheFullDate = newtime.splice(findIndexInTime,1);
+  
+     
+  
+  
+      let cutToWeatherElement = data.hourly.temperature_2m.slice(findIndexInTime);
+  
+      let weather = cutToWeatherElement.splice(0,1);
+      
+  
+  
+      resultDiv.innerText = `W dniu ${findTheFullDate} temperatura wyniesie: ${weather} stopni Celcjusza`;
+  
+      console.log(data);
+    }
+
+
     
-    return findTheFullDate;
+  }
+
+  
+
 }
 
 
